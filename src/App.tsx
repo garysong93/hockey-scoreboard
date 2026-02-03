@@ -26,6 +26,11 @@ function App() {
     }
   }, [theme]);
 
+  // Dispatch render event for prerenderer
+  useEffect(() => {
+    document.dispatchEvent(new Event('render-event'));
+  }, []);
+
   // Inner pages
   if (path === '/tutorial') {
     return <TutorialPage />;

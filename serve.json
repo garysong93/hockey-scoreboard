@@ -1,6 +1,10 @@
 {
+  "cleanUrls": true,
   "rewrites": [
-    { "source": "**", "destination": "/index.html" }
+    { "source": "/overlay", "destination": "/index.html" },
+    { "source": "/stream", "destination": "/index.html" },
+    { "source": "/share/**", "destination": "/index.html" },
+    { "source": "/view/**", "destination": "/index.html" }
   ],
   "headers": [
     {
