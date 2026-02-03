@@ -4,8 +4,6 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "startCommand": "node server.cjs",
-    "healthcheckPath": "/",
-    "healthcheckTimeout": 100
+    "startCommand": "node server.cjs"
   }
 }
