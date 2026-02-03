@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
 import { HomePage } from './pages/HomePage';
 import { OverlayPage } from './pages/OverlayPage';
+import { TutorialPage } from './pages/TutorialPage';
+import { RulesPage } from './pages/RulesPage';
+import { FAQPage } from './pages/FAQPage';
 import { useGameStore } from './stores/gameStore';
 
 function App() {
@@ -23,19 +26,20 @@ function App() {
     }
   }, [theme]);
 
-  // TODO: Add additional pages
-  // if (path === '/tutorial') {
-  //   return <TutorialPage />;
-  // }
-  // if (path === '/rules') {
-  //   return <RulesPage />;
-  // }
-  // if (path === '/faq') {
-  //   return <FAQPage />;
-  // }
+  // Inner pages
+  if (path === '/tutorial') {
+    return <TutorialPage />;
+  }
+  if (path === '/rules') {
+    return <RulesPage />;
+  }
+  if (path === '/faq') {
+    return <FAQPage />;
+  }
 
-  // Redirect any other path to homepage
+  // Homepage
   if (path !== '/' && path !== '/index.html') {
+    // Unknown path - redirect to homepage
     window.location.replace('/');
     return null;
   }
