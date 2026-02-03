@@ -4,6 +4,6 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "startCommand": "node server.cjs"
+    "startCommand": "npx serve dist -l ${PORT:-3000}"
   }
 }

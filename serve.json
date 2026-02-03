@@ -1,10 +1,14 @@
 {
   "cleanUrls": true,
   "rewrites": [
+    { "source": "/rules", "destination": "/rules/index.html" },
+    { "source": "/faq", "destination": "/faq/index.html" },
+    { "source": "/tutorial", "destination": "/tutorial/index.html" },
     { "source": "/overlay", "destination": "/index.html" },
     { "source": "/stream", "destination": "/index.html" },
     { "source": "/share/**", "destination": "/index.html" },
-    { "source": "/view/**", "destination": "/index.html" }
+    { "source": "/view/**", "destination": "/index.html" },
+    { "source": "**", "destination": "/index.html" }
   ],
   "headers": [
     {

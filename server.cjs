@@ -23,23 +23,17 @@ const mimeTypes = {
 };
 
 const server = http.createServer((req, res) => {
-  // Remove query string
-  const cleanUrl = req.url.split('?')[0];
+  let filePath = path.join(DIST_DIR, req.url === '/' ? 'index.html' : req.url);
 
-  let filePath = path.join(DIST_DIR, cleanUrl === '/' ? 'index.html' : cleanUrl);
+  // Remove query string
+  filePath = filePath.split('?')[0];
 
   const ext = path.extname(filePath);
 
   fs.stat(filePath, (err, stats) => {
     if (err || !stats.isFile()) {
-      // Try clean URLs: /tutorial -> /tutorial/index.html
-      const cleanUrlPath = path.join(DIST_DIR, cleanUrl, 'index.html');
-      if (fs.existsSync(cleanUrlPath)) {
-        filePath = cleanUrlPath;
-      } else {
-        // SPA fallback - serve index.html for any non-file request
-        filePath = path.join(DIST_DIR, 'index.html');
-      }
+      // SPA fallback - serve index.html for any non-file request
+      filePath = path.join(DIST_DIR, 'index.html');
     }
 
     fs.readFile(filePath, (err, data) => {
