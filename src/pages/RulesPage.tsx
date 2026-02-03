@@ -1,8 +1,36 @@
 import { PageLayout } from '../components/layout/PageLayout';
+import { SEO } from '../components/SEO';
+
+const rulesStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Hockey Rules - Complete Guide for Ice Hockey',
+  description: 'Learn the essential ice hockey regulations, from game structure to penalty rules. Covers periods, scoring, penalties, power plays, overtime, and key hockey terms.',
+  author: {
+    '@type': 'Organization',
+    name: 'Hockey Scoreboard Online',
+    url: 'https://www.hockeyscoreboardonline.com',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Hockey Scoreboard Online',
+    url: 'https://www.hockeyscoreboardonline.com',
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': 'https://www.hockeyscoreboardonline.com/rules',
+  },
+};
 
 export function RulesPage() {
   return (
     <PageLayout>
+      <SEO
+        title="Hockey Rules Guide - Ice Hockey Regulations & Penalties Explained"
+        description="Complete guide to ice hockey rules: game structure, scoring, penalties (minor, major, misconduct), power plays, overtime, and shootouts. Perfect for players and fans."
+        canonical="https://www.hockeyscoreboardonline.com/rules"
+        structuredData={rulesStructuredData}
+      />
       <div className="max-w-4xl mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-12">

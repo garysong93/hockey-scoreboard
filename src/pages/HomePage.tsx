@@ -2,10 +2,16 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Scoreboard } from '../components/Scoreboard';
 import { ControlPanel } from '../components/ControlPanel';
+import { SEO } from '../components/SEO';
 
 export function HomePage() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950">
+      <SEO
+        title="Hockey Scoreboard Online - Free Ice Hockey Score Keeper & Timer"
+        description="Free online hockey scoreboard with game timer, penalty tracking, power play countdown, shots on goal, and period management. Perfect for ice hockey, roller hockey, and street hockey games."
+        canonical="https://www.hockeyscoreboardonline.com/"
+      />
       <Header />
 
       <main className="flex-1 py-6 sm:py-10">

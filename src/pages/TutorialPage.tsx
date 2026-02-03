@@ -1,8 +1,49 @@
 import { PageLayout } from '../components/layout/PageLayout';
+import { SEO } from '../components/SEO';
+
+const howToStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Use Hockey Scoreboard Online',
+  description: 'Learn how to use our free online hockey scoreboard to track games like a pro. Step-by-step guide covering scoring, timer, penalties, and sharing features.',
+  step: [
+    {
+      '@type': 'HowToStep',
+      name: 'Open the Scoreboard',
+      text: 'Visit hockeyscoreboardonline.com in any web browser. No account or registration required - just open and start tracking.',
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Track Scores',
+      text: 'Click the team score number to add a goal. Right-click to remove a goal. Track shots on goal using the SOG counters.',
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Manage the Timer',
+      text: 'Click the timer to start/stop. Use +10s/-10s buttons for adjustments. Click the period indicator to advance periods.',
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Track Penalties',
+      text: 'Click Add Penalty, enter player number and penalty type. Penalties count down automatically with power play indicators.',
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Share Your Game',
+      text: 'Use the Share feature to generate a live link for spectators or OBS overlay URL for streaming.',
+    },
+  ],
+};
 
 export function TutorialPage() {
   return (
     <PageLayout>
+      <SEO
+        title="How to Use Hockey Scoreboard Online - Tutorial & Guide"
+        description="Learn how to use our free online hockey scoreboard. Step-by-step guide for scoring, timer management, penalty tracking, power play indicators, and live sharing features."
+        canonical="https://www.hockeyscoreboardonline.com/tutorial"
+        structuredData={howToStructuredData}
+      />
       <div className="max-w-4xl mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-12">

@@ -1,4 +1,5 @@
 import { PageLayout } from '../components/layout/PageLayout';
+import { SEO } from '../components/SEO';
 
 interface FAQItem {
   question: string;
@@ -105,9 +106,30 @@ const faqData: { category: string; items: FAQItem[] }[] = [
   },
 ];
 
+const faqStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqData.flatMap((category) =>
+    category.items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    }))
+  ),
+};
+
 export function FAQPage() {
   return (
     <PageLayout>
+      <SEO
+        title="FAQ - Hockey Scoreboard Online | Common Questions Answered"
+        description="Find answers to frequently asked questions about Hockey Scoreboard Online. Learn about features, usage, sharing, streaming, privacy, and technical support."
+        canonical="https://www.hockeyscoreboardonline.com/faq"
+        structuredData={faqStructuredData}
+      />
       <div className="max-w-4xl mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-12">
@@ -119,27 +141,6 @@ export function FAQPage() {
             Can't find what you're looking for? Reach out to us.
           </p>
         </div>
-
-        {/* FAQ Schema Script */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'FAQPage',
-              mainEntity: faqData.flatMap((category) =>
-                category.items.map((item) => ({
-                  '@type': 'Question',
-                  name: item.question,
-                  acceptedAnswer: {
-                    '@type': 'Answer',
-                    text: item.answer,
-                  },
-                }))
-              ),
-            }),
-          }}
-        />
 
         {/* FAQ Categories */}
         {faqData.map((category) => (
